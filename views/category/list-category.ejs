@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/header'); %>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        
+         <!-- Sidebar -->
+         <%- include('../partials/sidebar'); %>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('../partials/topbar'); %>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Category List</h1>
+                        <a href="/category/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-plus fa-sm text-white-50"></i> Create</a>
+                    </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Category Name</th>
+                                            <th>Description</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% let i = 1; %>
+                                        <% result.forEach((val) => { %>
+                                            <tr>
+                                                <td><%= i++ %></td>
+                                                <td><%= val.name %></td>
+                                                <td><%= val.description %></td>
+                                                <td align="center"><img style="width: 100px; height: 100px;" src="/uploads/<%= val.img %>" alt=""></td>
+                                                <td align="center">
+                                                    <a href="/category/create" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                                                        <i class="fas fa-pen fa-sm text-white-50"></i> Edit</a>
+                                                    <a href="/category/create" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                                        <i class="fas fa-trash fa-sm text-white-50"></i> Delete</a>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <%- include('../partials/footer'); %>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <%- include('../partials/scriptLink'); %>
+
+</body>
+
+</html>
