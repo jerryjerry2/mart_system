@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middlewares/authMiddleware');
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const upload = require('express-fileupload');
 
 const app = express();
@@ -25,6 +26,7 @@ app.get('/', requireAuth, (req, res) => {
 app.use(authRoutes);
 app.use(categoryRoutes);
 app.use(productRoutes);
+app.use(orderRoutes);
 
 
 app.listen(8000);

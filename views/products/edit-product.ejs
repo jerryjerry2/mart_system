@@ -26,23 +26,24 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Create Product</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Edit Product</h1>
                     <div class="container">
                         <div class="card shadow mb-12">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Create Product</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Edit Product</h6>
                             </div>
                             
                             <div class="card-body">
+                                <% result.forEach((val) => { %>
                                 <form class="user" action="/product/create" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" required name="name" aria-describedby="" placeholder="Product Name">
+                                        <input type="text" value="<%= val.name %>" class="form-control form-control-user" required name="name" aria-describedby="" placeholder="Product Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control form-control-user" required name="price" aria-describedby="" placeholder="Product Price">
+                                        <input type="number" value="<%= val.price %>" class="form-control form-control-user" required name="price" aria-describedby="" placeholder="Product Price">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="description" aria-describedby="" placeholder="Description">
+                                        <input type="text" value="<%= val.des %>" class="form-control form-control-user" name="description" aria-describedby="" placeholder="Description">
                                     </div>
                                     <div class="form-group" required>
                                         <select name="category" id="" class="classic">
@@ -53,22 +54,23 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control form-control-user" required name="amount" aria-describedby="" placeholder="Amount">
+                                        <input type="number" value="<%= val.amount %>" class="form-control form-control-user" required name="amount" aria-describedby="" placeholder="Amount">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control form-control-user"  name="discount" aria-describedby="" placeholder="Discount">
+                                        <input type="number" value="<%= val.discount %>" class="form-control form-control-user"  name="discount" aria-describedby="" placeholder="Discount">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="date" name="income_date" required>
+                                        <input class="form-control" value="<%= val.income_date %>" type="date" name="income_date" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="date" name="expired_date" required>
+                                        <input class="form-control" value="<%= val.expired_date %>" type="date" name="expired_date" required>
                                     </div>
                                     <button class="btn btn-primary btn-user btn-block btn-create">
                                         Create
                                     </button>
                                     <hr>
                                 </form>
+                                <% }) %>
                             </div>
                         </div>
                     </div>

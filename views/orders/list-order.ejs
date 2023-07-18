@@ -7,7 +7,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        
+
          <!-- Sidebar -->
          <%- include('../partials/sidebar'); %>
         <!-- End of Sidebar -->
@@ -24,11 +24,10 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Category List</h1>
-                        <a href="/category/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        <h1 class="h3 mb-0 text-gray-800">Product List</h1>
+                        <a href="/product/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                             <i class="fas fa-plus fa-sm text-white-50"></i> Create</a>
                     </div>
                     <!-- DataTales Example -->
@@ -42,28 +41,20 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Category Name</th>
-                                            <th>Description</th>
-                                            <th>Images</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Category</th>
+                                            <th>Amount</th>
+                                            <th>Discount</th>
+                                            <th>Income Date</th>
+                                            <th>Expired Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <% let i = 1; %>
-                                        <% result.forEach((val) => { %>
-                                            <tr>
-                                                <td><%= i++ %></td>
-                                                <td><%= val.name %></td>
-                                                <td><%= val.description %></td>
-                                                <td align="center"><img style="width: 300px; height: 200px;" src="/uploads/<%= val.img %>" alt=""></td>
-                                                <td align="center">
-                                                    <a href="/category/edit/<%= val.id %>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
-                                                        <i class="fas fa-pen fa-sm text-white-50"></i> Edit</a>
-                                                    <a href="/delete/<%= val.id %>/<%= val.img %>" onclick="return confirm('Are you sure?')" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                                        <i class="fas fa-trash fa-sm text-white-50"></i> Delete</a>
-                                                </td>
-                                            </tr>
-                                        <% }) %>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
