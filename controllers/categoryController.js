@@ -9,7 +9,6 @@ const getAll = (req, res) => {
         }
     })
 
-    
 }
 
 const create_get = (req, res) => {
@@ -42,14 +41,24 @@ const create_post = (req, res) => {
         }else{
             res.redirect('/category');
         }
+    }) 
+}
+
+const deleteRow = (req, res) =>{
+    console.log(req.params.id);
+    con.query('delete from category where id = ?', [req.params.id], (err, result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect('/category');
+        }
     })
 
-
-    
 }
 
 module.exports = {
     getAll,
     create_get,
-    create_post
+    create_post,
+    deleteRow
 }
