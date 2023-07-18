@@ -56,9 +56,15 @@ const deleteRow = (req, res) =>{
 
 }
 
+const edit_get = (req, res) => {
+    console.log(req.params.id);
+    res.render('category/edit-category');
+}
+
 module.exports = {
     getAll,
     create_get,
     create_post,
-    deleteRow
+    deleteRow,
+    edit_get
 }
