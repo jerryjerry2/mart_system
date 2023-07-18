@@ -45,7 +45,7 @@ const create_post = (req, res) => {
 }
 
 const deleteRow = (req, res) =>{
-    console.log(req.params.id);
+    
     con.query('delete from category where id = ?', [req.params.id], (err, result) => {
         if(err){
             console.log(err);
