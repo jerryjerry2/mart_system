@@ -32,11 +32,13 @@
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Edit Product</h6>
                             </div>
-                            
+                            <!-- <%= JSON.stringify(dataCategory) %>
+                            <%= JSON.stringify(result) %> -->
                             <div class="card-body">
                                 <% result.forEach((val) => { %>
-                                <form class="user" action="/product/create" method="post" enctype="multipart/form-data">
+                                <form class="user" action="/product/edit" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
+                                        <input type="hidden" name="id" value="<%= val.id %>">
                                         <input type="text" value="<%= val.name %>" class="form-control form-control-user" required name="name" aria-describedby="" placeholder="Product Name">
                                     </div>
                                     <div class="form-group">
@@ -47,9 +49,10 @@
                                     </div>
                                     <div class="form-group" required>
                                         <select name="category" id="" class="classic">
-                                            <% result.forEach((val) => { %>
-                                            <option value="" selected disabled hidden>Select Category</option>
-                                            <option value="<%= val.id %>"><%= val.name %></option>
+                                            <option value="" disabled hidden>Select Category</option>
+                                            <% let cate_id = val.cate_id %>
+                                            <% dataCategory.forEach((val) => { %>
+                                            <option value="<%= val.category_id %>" <%= ( val.category_id == cate_id ) ? "selected" : "" %>> <%= val.category_name %></option>
                                             <% }) %>
                                         </select>
                                     </div>
